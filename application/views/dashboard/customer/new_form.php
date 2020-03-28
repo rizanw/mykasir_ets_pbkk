@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view("admin/_includes/head.php") ?>
+    <?php $this->load->view("dashboard/_includes/head.php") ?>
 </head>
 
 <body id="page-top">
@@ -10,7 +10,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php $this->load->view("admin/_includes/sidebar.php") ?>
+        <?php $this->load->view("dashboard/_includes/sidebar.php") ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -20,7 +20,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php $this->load->view("admin/_includes/topbar.php") ?>
+                <?php $this->load->view("dashboard/_includes/topbar.php") ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -28,7 +28,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add Product</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Add Customer</h1>
                     </div>
 
                     <?php if ($this->session->flashdata('success')) : ?>
@@ -39,48 +39,40 @@
 
                     <div class="card mb-3">
                         <div class="card-header">
-                            <a href="<?php echo site_url('admin/products/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+                            <a href="<?php echo site_url('dashboard/customers/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
                         </div>
                         <div class="card-body">
 
-                            <form action="<?php echo site_url('admin/products/add') ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo site_url('dashboard/customers/add') ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="name">Name*</label>
-                                    <input class="form-control <?php echo form_error('name') ? 'is-invalid' : '' ?>" type="text" name="name" placeholder="Product name" />
+                                    <input class="form-control <?php echo form_error('name') ? 'is-invalid' : '' ?>" type="text" name="name" placeholder="Customer name" />
                                     <div class="invalid-feedback">
                                         <?php echo form_error('name') ?>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="price">Price*</label>
-                                    <input class="form-control <?php echo form_error('price') ? 'is-invalid' : '' ?>" type="number" name="price" min="0" placeholder="Product price" />
+                                    <label for="contact">Contact*</label>
+                                    <input class="form-control <?php echo form_error('contact') ? 'is-invalid' : '' ?>" type="text" name="contact" placeholder="Customer contact" />
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('price') ?>
+                                        <?php echo form_error('contact') ?>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="stock">Stock*</label>
-                                    <input class="form-control <?php echo form_error('stock') ? 'is-invalid' : '' ?>" type="number" name="stock" min="0" placeholder="Product stock" />
+                                    <label for="points">Points*</label>
+                                    <input class="form-control <?php echo form_error('points') ? 'is-invalid' : '' ?>" type="number" name="points" min="0" value="0" placeholder="Customer points" />
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('stock') ?>
+                                        <?php echo form_error('points') ?>
                                     </div>
-                                </div>
+                                </div> 
 
                                 <div class="form-group">
-                                    <label for="name">Photo</label>
-                                    <input class="form-control-file <?php echo form_error('price') ? 'is-invalid' : '' ?>" type="file" name="image" />
+                                    <label for="name">Details</label>
+                                    <textarea class="form-control <?php echo form_error('details') ? 'is-invalid' : '' ?>" name="details" placeholder="Customer Details..."></textarea>
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('image') ?>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name">Description*</label>
-                                    <textarea class="form-control <?php echo form_error('description') ? 'is-invalid' : '' ?>" name="description" placeholder="Product description..."></textarea>
-                                    <div class="invalid-feedback">
-                                        <?php echo form_error('description') ?>
+                                        <?php echo form_error('details') ?>
                                     </div>
                                 </div>
 
@@ -100,7 +92,7 @@
                 <!-- End of Main Content -->
 
                 <!-- Footer -->
-                <?php $this->load->view("admin/_includes/footer.php") ?>
+                <?php $this->load->view("dashboard/_includes/footer.php") ?>
                 <!-- End of Footer -->
 
             </div>
@@ -110,13 +102,13 @@
         <!-- End of Page Wrapper -->
 
         <!-- Scroll to Top Button-->
-        <?php $this->load->view("admin/_includes/scrolltop.php") ?>
+        <?php $this->load->view("dashboard/_includes/scrolltop.php") ?>
 
         <!-- Logout Modal-->
-        <?php $this->load->view("admin/_includes/modal.php") ?>
+        <?php $this->load->view("dashboard/_includes/modal.php") ?>
 
         <!-- JavaScript-->
-        <?php $this->load->view("admin/_includes/js.php") ?>
+        <?php $this->load->view("dashboard/_includes/js.php") ?>
 </body>
 
 </html>

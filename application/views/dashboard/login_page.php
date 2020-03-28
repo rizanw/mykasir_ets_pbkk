@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view("admin/_includes/head.php") ?>
+    <?php $this->load->view("dashboard/_includes/head.php") ?>
 </head>
 
 <body class="bg-gradient-primary">
@@ -24,7 +24,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
-                  <form class="user" action="<?= site_url('admin/login') ?>" method="POST">
+                  <form class="user" action="<?= site_url('dashboard/login') ?>" method="POST">
                     <div class="form-group">
                       <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     </div>
@@ -56,7 +56,7 @@
   </div>
 
     <!-- JavaScript-->
-    <?php $this->load->view("admin/_includes/js.php") ?>
+    <?php $this->load->view("dashboard/_includes/js.php") ?>
 </body>
 
 </html>

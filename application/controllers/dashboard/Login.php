@@ -17,13 +17,13 @@ class Login extends CI_Controller
         }
 
         // tampilkan halaman login
-        $this->load->view("admin/login_page.php");
+        $this->load->view("dashboard/login_page.php");
     }
 
     public function logout()
     {
         // hancurkan semua sesi
         $this->session->sess_destroy();
-        redirect(site_url('admin/login'));
+        redirect(site_url('dashboard/login'));
     }
 }

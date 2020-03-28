@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view("admin/_includes/head.php") ?>
+    <?php $this->load->view("dashboard/_includes/head.php") ?>
 </head>
 
 <body id="page-top">
@@ -10,7 +10,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php $this->load->view("admin/_includes/sidebar.php") ?>
+        <?php $this->load->view("dashboard/_includes/sidebar.php") ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -20,7 +20,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php $this->load->view("admin/_includes/topbar.php") ?>
+                <?php $this->load->view("dashboard/_includes/topbar.php") ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -68,7 +68,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php $this->load->view("admin/_includes/footer.php") ?>
+            <?php $this->load->view("dashboard/_includes/footer.php") ?>
             <!-- End of Footer -->
 
         </div>
@@ -78,13 +78,13 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <?php $this->load->view("admin/_includes/scrolltop.php") ?>
+    <?php $this->load->view("dashboard/_includes/scrolltop.php") ?>
 
     <!-- Logout Modal-->
-    <?php $this->load->view("admin/_includes/modal.php") ?>
+    <?php $this->load->view("dashboard/_includes/modal.php") ?>
 
     <!-- JavaScript-->
-    <?php $this->load->view("admin/_includes/js.php") ?>
+    <?php $this->load->view("dashboard/_includes/js.php") ?>
 </body>
 
 </html>

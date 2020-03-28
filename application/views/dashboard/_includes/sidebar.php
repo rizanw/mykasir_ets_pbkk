@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('admin') ?>">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('dashboard') ?>">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -13,11 +13,10 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="<?php echo site_url('admin') ?>">
+        <a class="nav-link" href="<?php echo site_url('dashboard') ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -27,9 +26,27 @@
         Application
     </div>
     <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('admin') ?>">
+        <a class="nav-link" href="<?php echo site_url('dashboard/sales') ?>">
             <i class="fas fa-industry"></i>
             <span>Point of Sales</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Data
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('dashboard/payments') ?>">
+            <i class="fas fa-list"></i>
+            <span>Payments</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('dashboard/transactions') ?>">
+            <i class="fas fa-handshake"></i>
+            <span>Transactions</span></a>
     </li>
 
     <!-- Divider -->
@@ -49,8 +66,8 @@
         <div id="collapseProduct" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Options :</h6>
-                <a class="collapse-item" href="<?php echo site_url('admin/products') ?>">List of Products</a>
-                <a class="collapse-item" href="<?php echo site_url('admin/products/add') ?>">Add New Product</a>
+                <a class="collapse-item" href="<?php echo site_url('dashboard/products') ?>">List of Products</a>
+                <a class="collapse-item" href="<?php echo site_url('dashboard/products/add') ?>">Add New Product</a>
             </div>
         </div>
     </li>
@@ -64,8 +81,8 @@
         <div id="collapseCustomer" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Options :</h6>
-                <a class="collapse-item" href="<?php echo site_url('admin/products') ?>">List of Products</a>
-                <a class="collapse-item" href="<?php echo site_url('admin/products/add') ?>">Add New Product</a>
+                <a class="collapse-item" href="<?php echo site_url('dashboard/customers') ?>">List of Customers</a>
+                <a class="collapse-item" href="<?php echo site_url('dashboard/customers/add') ?>">Add New Customer</a>
             </div>
         </div>
     </li>
@@ -78,7 +95,7 @@
         </a>
         <div id="collapseWallet" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?php echo site_url('admin/products') ?>">Wallets</a>
+                <a class="collapse-item" href="<?php echo site_url('dashboard/wallets') ?>">Wallets</a>
             </div>
         </div>
     </li>

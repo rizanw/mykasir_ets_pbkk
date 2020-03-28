@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view("admin/_includes/head.php") ?>
+    <?php $this->load->view("dashboard/_includes/head.php") ?>
 </head>
 
 <body id="page-top">
@@ -10,7 +10,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php $this->load->view("admin/_includes/sidebar.php") ?>
+        <?php $this->load->view("dashboard/_includes/sidebar.php") ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -20,7 +20,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php $this->load->view("admin/_includes/topbar.php") ?>
+                <?php $this->load->view("dashboard/_includes/topbar.php") ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -28,50 +28,44 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Daftar Produk</h1>
-                    </div>
+                        <h1 class="h3 mb-0 text-gray-800">Daftar Transaksi
 
                     <!-- DataTables -->
                     <div class="card mb-3">
                         <div class="card-header">
-                            <a href="<?php echo site_url('admin/products/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+                            <a href="<?php echo site_url('dashboard/customers/add') ?>"><i class="fas fa-plus"></i> Add New</a>
                         </div>
                         <div class="card-body">
-
                             <div class="table-responsive">
                                 <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Stock</th>
-                                            <th>Photo</th>
-                                            <th>Description</th>
-                                            <th>Action</th>
+                                            <th>ID</th>
+                                            <th>Date & Time</th>
+                                            <th>Customer</th>
+                                            <th>Cashier</th>
+                                            <th>Details</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($products as $product) : ?>
+                                        <?php foreach ($transactions as $transaction) : ?>
                                             <tr>
                                                 <td width="150">
-                                                    <?php echo $product->name ?>
+                                                    <?php echo $transaction->transaction_id ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $product->price ?>
+                                                    <?php echo $transaction->datetime ?>
                                                 </td>
                                                 </td>
                                                 <td>
-                                                    <?php echo $product->stock ?>
+                                                    <?php echo $transaction->customer_id ?>
                                                 </td>
                                                 <td>
-                                                    <img src="<?php echo base_url('upload/product/' . $product->image) ?>" width="64" />
-                                                </td>
-                                                <td class="small">
-                                                    <?php echo substr($product->description, 0, 120) ?>...</td>
-                                                <td width="250">
-                                                    <a href="<?php echo site_url('admin/products/edit/' . $product->product_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-                                                    <a onclick="deleteConfirm('<?php echo site_url('admin/products/delete/' . $product->product_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                                                </td>
+                                                    <?php echo $transaction->kasir_id ?>
+                                                </td> 
+                                                <td >
+                                                    
+                                                </td> 
                                             </tr>
                                         <?php endforeach; ?>
 
@@ -88,7 +82,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php $this->load->view("admin/_includes/footer.php") ?>
+            <?php $this->load->view("dashboard/_includes/footer.php") ?>
             <!-- End of Footer -->
 
         </div>
@@ -98,13 +92,13 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <?php $this->load->view("admin/_includes/scrolltop.php") ?>
+    <?php $this->load->view("dashboard/_includes/scrolltop.php") ?>
 
     <!-- Logout Modal-->
-    <?php $this->load->view("admin/_includes/modal.php") ?>
+    <?php $this->load->view("dashboard/_includes/modal.php") ?>
 
     <!-- JavaScript-->
-    <?php $this->load->view("admin/_includes/js.php") ?>
+    <?php $this->load->view("dashboard/_includes/js.php") ?>
     <script>
         function deleteConfirm(url) {
             $('#btn-delete').attr('href', url);
