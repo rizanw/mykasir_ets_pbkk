@@ -28,23 +28,25 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Daftar Transaksi
+                        <h1 class="h3 mb-0 text-gray-800">Daftar Transaksi</h1>
+                    </div>
 
                     <!-- DataTables -->
                     <div class="card mb-3">
                         <div class="card-header">
-                            <a href="<?php echo site_url('dashboard/customers/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+                            <a href="#"><i class="fas fa-plus"></i></a>
                         </div>
                         <div class="card-body">
+
                             <div class="table-responsive">
                                 <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Date & Time</th>
-                                            <th>Customer</th>
+                                            <th>Date&Time</th>
                                             <th>Cashier</th>
-                                            <th>Details</th>
+                                            <th>Customer</th> 
+                                            <th>Invoice</th> 
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -58,17 +60,20 @@
                                                 </td>
                                                 </td>
                                                 <td>
-                                                    <?php echo $transaction->customer_id ?>
+                                                    <?php foreach ($cashiers as $cashier) : ?>
+                                                    <?php if($cashier->user_id == $transaction->kasir_id) echo $cashier->username ?>
+                                                    <?php endforeach ?>
+                                                </td>  
+                                                <td>                                                
+                                                    <?php foreach ($customers as $customer) : ?>
+                                                    <?php if($customer->customer_id == $transaction->customer_id) echo $customer->name."( ".$customer->contact." )" ?>
+                                                    <?php endforeach ?>
+                                                </td>  
+                                                <td width="250">
+                                                    <a href="<?php echo site_url('dashboard/transactions/invoice/' . $transaction->transaction_id) ?>" class="btn btn-small"><i class="fas fa-list"></i> detail</a>
                                                 </td>
-                                                <td>
-                                                    <?php echo $transaction->kasir_id ?>
-                                                </td> 
-                                                <td >
-                                                    
-                                                </td> 
                                             </tr>
-                                        <?php endforeach; ?>
-
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -98,33 +103,7 @@
     <?php $this->load->view("dashboard/_includes/modal.php") ?>
 
     <!-- JavaScript-->
-    <?php $this->load->view("dashboard/_includes/js.php") ?>
-    <script>
-        function deleteConfirm(url) {
-            $('#btn-delete').attr('href', url);
-            $('#deleteModal').modal();
-        }
-    </script>
-
-    <!-- delete modal-->
-    <!-- Logout Delete Confirmation-->
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php $this->load->view("dashboard/_includes/js.php") ?> 
 </body>
 
 </html>

@@ -7,6 +7,7 @@ class Wallets extends CI_Controller {
 		
 		$this->load->model("user_model");
 		if($this->user_model->isNotLogin()) redirect(site_url('dashboard/login'));
+        if($this->session->userdata('user_logged')->role != 'admin') redirect(site_url('dashboard'));
 
         $this->load->library('form_validation');
 		$this->load->model("wallet_model");

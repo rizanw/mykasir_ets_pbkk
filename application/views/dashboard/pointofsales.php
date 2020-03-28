@@ -34,10 +34,10 @@
                                 <div class="card-header">
                                     <a href="#">Products</a>
                                 </div>
-                                <div class="card-body" style="padding: 13px">
+                                <div class="card-body">
                                     <div class="d-flex flex-wrap">
                                         <?php foreach ($products as $product) : ?>
-                                            <div class="card m-1" style="width: 12rem;">
+                                            <div class="card m-3" style="width: 14rem;">
                                                 <img src="<?php echo base_url() ?>upload/product/<?php echo $product->image ?>" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 id="name-<?php echo $product->product_id ?>" value="<?php echo $product->name ?>" class="card-title"><?php echo $product->name ?></h5>

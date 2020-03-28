@@ -22,7 +22,6 @@
                 <!-- Topbar -->
                 <?php $this->load->view("dashboard/_includes/topbar.php") ?>
                 <!-- End of Topbar -->
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 

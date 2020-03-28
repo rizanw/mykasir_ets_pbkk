@@ -8,6 +8,7 @@ class Customers extends CI_Controller
         parent::__construct();
         $this->load->model("user_model");
         if($this->user_model->isNotLogin()) redirect(site_url('dashboard/login'));
+        if($this->session->userdata('user_logged')->role != 'admin') redirect(site_url('dashboard'));
 
         $this->load->model("customer_model");
         $this->load->library('form_validation');

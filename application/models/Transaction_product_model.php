@@ -14,6 +14,11 @@ class Transaction_product_model extends CI_Model
         return [ ];
     }
 
+    public function getByTransaction($id)
+    {
+        return $this->db->get_where($this->_table, ["transaction_id" => $id])->result();
+    }
+
     public function save($transaction_id, $product_id, $quantity)
     { 
         $this->id = uniqid();

@@ -52,6 +52,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+    <?php if($this->session->userdata('user_logged')->role == "admin"): ?>
     <!-- Heading -->
     <div class="sidebar-heading">
         Management
@@ -99,9 +100,9 @@
             </div>
         </div>
     </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider">
+    <?php endif ?>
 
     <!-- Heading -->
     <div class="sidebar-heading">

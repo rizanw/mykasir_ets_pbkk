@@ -21,7 +21,7 @@ class Transaction_model extends CI_Model
 
     public function getById($id)
     {
-        return $this->db->get_where($this->_table, ["product_id" => $id])->row();
+        return $this->db->get_where($this->_table, ["transaction_id" => $id])->row();
     }
 
     public function save($transaction_id, $post)

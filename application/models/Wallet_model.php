@@ -30,7 +30,7 @@ class Wallet_model extends CI_Model
                 'rules' => 'required'
             ]
         ];
-    }
+    } 
 
     public function getAll()
     {
@@ -52,15 +52,14 @@ class Wallet_model extends CI_Model
         return $this->db->insert($this->_table, $this);
     }
 
-    public function update()
+    public function update($post)
     {
-        $post = $this->input->post();
-        $this->wallet_id = $post["id"];
-        $this->name = $post["name"];
-        $this->amount = $post["amount"];  
-        $this->description = $post["description"];
- 
-        return $this->db->update($this->_table, $this, array('wallet_id' => $post['id']));
+        $wallet = $this->getById($post['wallet']);
+        $this->wallet_id = $wallet->wallet_id;
+        $this->name = $wallet->name;
+        $this->description = $wallet->description; 
+        $this->amount = (int)$wallet->amount + (int)$post['amount'];   
+        return $this->db->update($this->_table, $this, array('wallet_id' => $post['wallet']));
     }
 
     public function delete($id)

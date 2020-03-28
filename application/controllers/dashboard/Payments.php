@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Products extends CI_Controller
+class Payments extends CI_Controller
 {
     public function __construct()
     {
@@ -9,57 +9,33 @@ class Products extends CI_Controller
         $this->load->model("user_model");
         if($this->user_model->isNotLogin()) redirect(site_url('dashboard/login'));
 
-        $this->load->model("product_model");
-        $this->load->library('form_validation');
+        $this->load->model("payment_model");
+        $this->load->model("wallet_model"); 
 
+        $this->load->library('form_validation');
         $this->load->helper(array('form', 'url'));
     }
 
     public function index()
     {
-        $data["products"] = $this->product_model->getAll();
-        $this->load->view("dashboard/product/list", $data);
+        $data["payments"] = $this->payment_model->getAll();
+        $data["wallets"] = $this->wallet_model->getAll();
+        $this->load->view("dashboard/payments", $data);
     }
 
-    public function add()
+    public function edit()
     {
-        $product = $this->product_model;
-        $validation = $this->form_validation;
-        $validation->set_rules($product->rules());
-
-        if ($validation->run()) {
-            $product->save();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        $post = $this->input->post();
+        $payment = $this->payment_model;        
+        $wallet = $this->wallet_model; 
+ 
+        if (($post['wallet']) == 0){
+            $this->session->set_flashdata('fails', 'Masukkan metode pembayaran(wallet)');
+        }else{
+            $payment->update($post);
+            $wallet->update($post);
         }
-
-        $this->load->view("dashboard/product/new_form");
+        redirect('dashboard/payments');
     }
-
-    public function edit($id = null)
-    {
-        if (!isset($id)) redirect('dashboard/products');
-
-        $product = $this->product_model;
-        $validation = $this->form_validation;
-        $validation->set_rules($product->rules());
-
-        if ($validation->run()) {
-            $product->update();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
-        }
-
-        $data["product"] = $product->getById($id);
-        if (!$data["product"]) show_404();
-
-        $this->load->view("dashboard/product/edit_form", $data);
-    }
-
-    public function delete($id = null)
-    {
-        if (!isset($id)) show_404();
-
-        if ($this->product_model->delete($id)) {
-            redirect(site_url('dashboard/products'));
-        }
-    }
+ 
 }
